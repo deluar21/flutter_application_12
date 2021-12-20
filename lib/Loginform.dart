@@ -34,9 +34,17 @@ class Success extends StatelessWidget {
       ), //IconButton
       body: Center(
         child: Container(
-          width: 200.0,
-          height: 100.0,
-          color: Colors.green,
+          width: 500.0,
+          height: 400.0,
+          decoration: BoxDecoration(
+            color: Colors.green,
+            image: DecorationImage(
+              image: NetworkImage(
+                  "https://c.ndtvimg.com/2020-04/f71gm4k4_sheilkh-mujibur-rahman-fb-650_625x300_07_April_20.jpg"),
+              fit: BoxFit.fitHeight,
+            ),
+            shape: BoxShape.rectangle,
+          ),
           padding: EdgeInsets.all(35),
           margin: EdgeInsets.all(20),
           alignment: Alignment.bottomRight,
@@ -47,6 +55,7 @@ class Success extends StatelessWidget {
           ),
         ),
       ),
+
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.

@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_application_12/main.dart';
 
 import 'First.dart';
+
 void main(List<String> args) {
   runApp(MaterialApp(
     theme: ThemeData(primarySwatch: Colors.deepPurple),
     debugShowCheckedModeBanner: false,
-    title: 'Sign Up',
-    home: SignUp(),
+    title: 'Login',
+    home: LoginPage(),
     routes: {
-      '/SignUp': (context) => LocalPage(),
+      '/ignUp': (context) => LocalPage(),
+      '/Sign Up': (context) => SignUp(),
     },
   ));
 }
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _SignUpState createState() => _SignUpState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _LoginPageState extends State<LoginPage> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   void validate() {
     if (formkey.currentState!.validate()) {
       //print('Validation done.');
-      Navigator.pushNamed(context, '/LocalPage');
+      Navigator.pushNamed(context, '/Sign Up');
     } else {
       print('Validation failed.');
     }
@@ -36,7 +38,8 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: Text('Login Page'),
+        centerTitle: true,
       ),
       body: Center(
         child: Padding(
@@ -69,7 +72,7 @@ class _SignUpState extends State<SignUp> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Last Name',
-                      hintText: 'Enter Last Name ',
+                      hintText: 'Enter Last Name',
                     ),
                     validator: (username) {
                       if (username!.isEmpty) {
@@ -85,12 +88,12 @@ class _SignUpState extends State<SignUp> {
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: ' Father Name ',
-                      hintText: 'Enter Your Father Name',
+                      labelText: ' Email',
+                      hintText: 'Enter Your Email',
                     ),
                     validator: (email) {
                       if (email!.isEmpty) {
-                        return 'Father Name can not be empty';
+                        return 'Email can not be empty';
                       }
                       return null;
                     },
@@ -99,55 +102,22 @@ class _SignUpState extends State<SignUp> {
                     height: 12,
                   ),
                   TextFormField(
-                    keyboardType: TextInputType.text,
+                    obscureText: true,
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: ' Mother Name ',
-                      hintText: 'Enter Your Mother Name',
+                      labelText: 'Password',
+                      hintText: 'Enter Password',
                     ),
-                    validator: (email) {
-                      if (email!.isEmpty) {
-                        return 'Father Name can not be empty';
+                    validator: (pass) {
+                      if (pass!.isEmpty) {
+                        return 'Password can not be empty';
                       }
                       return null;
                     },
                   ),
                   SizedBox(
-                    height: 18,
-                  ),
-                  TextFormField(
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: ' Father Name ',
-                      hintText: 'Enter Your Father Name',
-                    ),
-                    validator: (email) {
-                      if (email!.isEmpty) {
-                        return 'Father Name can not be empty';
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(
-                    height: 18,
-                  ),
-                  TextFormField(
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: ' Father Name ',
-                      hintText: 'Enter Your Father Name',
-                    ),
-                    validator: (email) {
-                      if (email!.isEmpty) {
-                        return 'Father Name can not be empty';
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(
-                    height: 18,
+                    height: 12,
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -155,9 +125,9 @@ class _SignUpState extends State<SignUp> {
                     ),
                     onPressed: () {
                       validate();
-                      // Navigator.pushNamed(context, '/LocalPage');
+                      // Navigator.pushNamed(context, '/Sign Up');
                     },
-                    child: Text(' Sign Up'),
+                    child: Text('Login'),
                   ),
                 ],
               ),
