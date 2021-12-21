@@ -10,7 +10,6 @@ void main(List<String> args) {
     title: 'Login',
     home: LoginPage(),
     routes: {
-      '/ignUp': (context) => LocalPage(),
       '/Sign Up': (context) => SignUp(),
     },
   ));
